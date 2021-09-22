@@ -24,7 +24,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
             if(primenumbers[i]==true)
             {
-                if(i==p)
+                if(i == p)
                 {
                     return true;
                 }
