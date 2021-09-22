@@ -27,7 +27,7 @@ public class Main {
                 System.out.println("-------------------------------------------");
                 System.out.println("Bitte geben Sie jetzt die Zahl, bei der Sie wissen wollen ob sie eine Primzahl ist, ein!");
                 int zahl = s.nextInt();
-                if(sieve.isPrime(zahl)==true)
+                if(sieve.isPrime(zahl))
                 {
                     System.out.println(zahl + " ist eine Primzahl!");
                 }else
