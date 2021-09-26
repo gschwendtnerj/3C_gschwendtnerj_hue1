@@ -1,19 +1,25 @@
 public class EratosthenesPrimeSieve implements PrimeSieve {
 
     private final int UPPER_LIMIT;
+    private static boolean[] primenumbers;
 
     public EratosthenesPrimeSieve(int UPPER_LIMIT)
     {
         this.UPPER_LIMIT = UPPER_LIMIT;
     }
 
-    @Override
-    public boolean isPrime(int p) {
-        boolean[] primenumbers = new boolean[UPPER_LIMIT];
+    private void initializePrimes()
+    {
+        primenumbers = new boolean[UPPER_LIMIT];
         for(int i = 0; i<UPPER_LIMIT;i++)
         {
             primenumbers[i] = true;
         }
+    }
+
+    @Override
+    public boolean isPrime(int p) {
+        initializePrimes();
 
         for(int i = 2; i<UPPER_LIMIT;i++)
         {
@@ -42,11 +48,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     @Override
     public void printPrimes() {
-        boolean[] primenumbers = new boolean[UPPER_LIMIT];
-        for(int i = 0; i<UPPER_LIMIT;i++)
-        {
-            primenumbers[i] = true;
-        }
+      initializePrimes();
         System.out.println("Primzahlen:");
         for(int i = 2; i<UPPER_LIMIT;i++)
         {
