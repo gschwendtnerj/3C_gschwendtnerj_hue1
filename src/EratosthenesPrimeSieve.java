@@ -10,8 +10,8 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
 
     private void initializePrimes()
     {
-        primenumbers = new boolean[UPPER_LIMIT];
-        for(int i = 0; i<UPPER_LIMIT;i++)
+        primenumbers = new boolean[UPPER_LIMIT+1];
+        for(int i = 0; i<UPPER_LIMIT+1;i++)
         {
             primenumbers[i] = true;
         }
@@ -21,7 +21,7 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
     public boolean isPrime(int p) {
         initializePrimes();
 
-        for(int i = 2; i<UPPER_LIMIT;i++)
+        for(int i = 2; i<=UPPER_LIMIT;i++)
         {
 
 
@@ -32,10 +32,10 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
                     return true;
                 }
 
-                for(int j = i;j<UPPER_LIMIT;j++)
+                for(int j = i;j<=UPPER_LIMIT;j++)
                 {
                     int primeIndex = i*j;
-                    if(primeIndex<UPPER_LIMIT)
+                    if(primeIndex<=UPPER_LIMIT)
                     {
                         primenumbers[primeIndex] = false;
                     }
@@ -50,14 +50,14 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
     public void printPrimes() {
       initializePrimes();
         System.out.println("Primzahlen:");
-        for(int i = 2; i<UPPER_LIMIT;i++)
+        for(int i = 2; i<UPPER_LIMIT+1;i++)
         {
             if (primenumbers[i]) {
                 System.out.println(i);
 
-                for (int j = i; j < UPPER_LIMIT; j++) {
+                for (int j = i; j < UPPER_LIMIT+1; j++) {
                     int primeIndex = i * j;
-                    if (primeIndex < UPPER_LIMIT) {
+                    if (primeIndex < UPPER_LIMIT+1) {
                         primenumbers[primeIndex] = false;
                     }
                 }
